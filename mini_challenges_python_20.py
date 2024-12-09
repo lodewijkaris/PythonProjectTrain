@@ -5,9 +5,8 @@
 
 import random
 
-random_number = random.randint(1, 1000)
+random_number = random.randint(1, 300)
 print(f' Je hebt {random_number} coins en je gaat 1 item van 100 coins kopen')
-#print(f' Je hebt {random_number} coins en je gaat 1 item van 100 coins kopen')
 
 class LootBox:
     def __init__(self):
@@ -45,7 +44,10 @@ class LootBox:
         return None
 
     def check_coins(self):
-        print(f"You have {random_number-self.price} coins left.")
+        if random_number < self.price:
+            print (f"You have {random_number} coins left.")
+        else:
+            print(f"You have {random_number-self.price} coins left.")
 
 # Example usage
 lootbox = LootBox()
