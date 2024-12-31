@@ -9,7 +9,7 @@ def get_valid_date(prompt):
         try:
             return datetime.strptime(date_str, "%Y-%m-%d")
         except ValueError:
-            print("Invalid date format. Please use YYYY-MM-DD.")
+            print("Ongedeldige datumformaat ingevoerd. Gebruik aub JJJJ-MM-DD.")
 
 # Function to calculate age
 def calculate_age(birthdate):
@@ -18,7 +18,7 @@ def calculate_age(birthdate):
     return age
 
 # Ask the user for their birthdate
-birthdate = get_valid_date("Voeg daarom uw geboortedatum in (JJJJ-MM-DD): ")
+birthdate = get_valid_date("Voeg (daarom) uw geboortedatum in (JJJJ-MM-DD): ")
 age = calculate_age(birthdate)
 
 print(f"Je leeftijd is: {age}")
