@@ -23,4 +23,29 @@ notation = f'{A}'+'d'+f'{X}'
 result = roll_dice(notation)
 print(f"Rolling {notation}: {result}")
 total_sum = sum(result)
-print(f"Total score: {total_sum}" )
+print(f"Total score: {total_sum}" )#define aantal dobbelstenen A en vlakken X
+hoeveel_ds = int(input('Hoeveel dobbelstenen wil je gooien?:  '))
+A= hoeveel_ds
+hoeveel_vlakken = int(input('Hoeveel vlakken heeft de dobbelsteen?:   '))
+X = hoeveel_vlakken
+
+#Gooi willekeurig het aantal dobbelstenen A met X vlakken
+import random
+
+def roll_dice(notation):
+    if 'd' in notation.lower():
+        num_dice, dice_type = notation.lower().split('d')
+        if num_dice.isdigit() and dice_type.isdigit():
+            num_dice = int(num_dice)
+            dice_type = int(dice_type)
+            rolls = [random.randint(1, dice_type) for _ in range(num_dice)]
+            return rolls
+        else:
+            return "Invalid notation. Use the format 'AdX' where A is the number of dice and X is the number of sides."
+    else:
+        return "Invalid notation. Use the format 'AdX' where A is the number of dice and X is the number of sides."
+notation = f'{A}'+'d'+f'{X}'
+result = roll_dice(notation)
+print(f"Rolling {notation}: {result}")
+total_sum = sum(result)
+print(f"Totale score dobbelstenen bij elkaar opgeteld: {total_sum}" )
