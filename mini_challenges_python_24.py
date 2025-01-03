@@ -1,7 +1,6 @@
 #define aantal dobbelstenen A en vlakken X
 hoeveel_ds = int(input('Hoeveel dobbelstenen wil je gooien?:  '))
 A= hoeveel_ds
-
 hoeveel_vlakken = int(input('Hoeveel vlakken heeft de dobbelsteen?:   '))
 X = hoeveel_vlakken
 
