@@ -57,7 +57,7 @@ dagen_verschil = (now - datum).days
 
 print("het verschil in dagen tussen vandaag en de opgegeven datum is:", dagen_verschil)
 if now > datum:
-    print(f"De opgegeven datum lag in het verleden, dus -{dagen_verschil} dagen verschl tussen nu en de opgegeven datum")
+    print(f"De opgegeven datum lag in het verleden, dus -{dagen_verschil} dagen verschil tussen nu en de opgegeven datum")
 
 else:
     print(f"De opgegeven datum ligt in de toekomst, dus +{dagen_verschil} dagen verschil tussen nu en de opgegeven datum")
