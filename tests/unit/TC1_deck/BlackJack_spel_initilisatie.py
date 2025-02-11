@@ -12,11 +12,3 @@ def create_deck():
         for rank in ranks:
             deck.append((rank, suit))
     return deck
-
-# Main function to play blackjack
-def play_blackjack():
-    deck = create_deck()
-    random.shuffle(deck)
-
-    player_hand = []
-    dealer_hand = []

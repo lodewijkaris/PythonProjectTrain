@@ -3,7 +3,7 @@ from BlackJack_hit import deal_card
 
 class TestBlackJackTC3(unittest.TestCase):
     def test_deal_card(self):
-        # Setup initial deck and hand
+        # Zet een initieel dek en een hand op
         deck = [
         ('4', 'Clubs'), ('5', 'Spades'),
         ('6', 'Hearts'), ('7', 'Diamonds'), ('8', 'Clubs'), ('9', 'Spades'),
@@ -20,36 +20,35 @@ class TestBlackJackTC3(unittest.TestCase):
         ('Jack', 'Hearts'), ('Queen', 'Diamonds'), ('King', 'Clubs'), ('Ace', 'Spades')
         ]
 
-        # Game starts with 2 cards player and 2 card dealer, 48 cards left in deck
-
+        # Spel start met 2 kaarten voor speler en 2 voor deler, 48 kaarten over in dek
         hand = [('2', 'Hearts'), ('3', 'Diamonds')]
         self.assertEqual(len(hand), 2)
         dealer_hand = [('9', 'Clubs'), ('10', 'Spades'),]
         self.assertEqual(len(dealer_hand), 2)
 
-        # Call the function to test hit 1 card by player
+        # Roep de functie aan om de te testen dat de speler 1 kaart neemt
         deal_card(deck, hand)
 
-        # Assert that the hand has 3 cards (2+1)
-
+        # Doe een bewering dat de hand nu 3 kaarten heeft (2+1)
         self.assertEqual(len(hand), 3)
-        # Assert that the deck has 1 less card 48-1
+        # Beweer dat het dek 1 kaart minder heeft 48-1
         self.assertEqual(len(deck), 47)
-        # Assert that the card in the hand is no longer in the deck
+        # Beweer dat de kaart niet langer in het dek is
         self.assertNotIn(hand[0], deck)
 
-        # Call the function two times to test hitting 2 other cards
+        # Roep de functie aan om de te testen dat de speler nog 2 kaarten neemt
         deal_card(deck, hand)
         deal_card(deck, hand)
-        # Assert that the hand has now 2+3 card
+        # Doe een bewering dat de hand nu 2+3 kaarten heeft
         self.assertEqual(len(hand), 5)
-        # Assert that the deck has 2 less card 47-2
+        # Beweer dat het dek 1 kaart minder heeft 47-2
         self.assertEqual(len(deck), 45)
 
-        # Assert that the card in the hand is no longer in the deck
+        # Beweer dat de kaart niet langer in het dek is
         self.assertNotIn((hand[0])and(hand[1])and(hand[2]), deck)
         print(f"")
         print(f"Speler heeft nu de volgende vijf kaarten:{hand}")
-
+        print(f"Deler heeft nu de volgende twee kaarten:{dealer_hand}")
+        print(f"Aantal kaarten in dek over:{(len(deck))}")
 if __name__ == '__main__':
     unittest.main()
