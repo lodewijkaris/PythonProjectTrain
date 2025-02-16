@@ -1,5 +1,9 @@
-import random
+#########################################################################################
+#Lodewijk Aris version 1, date 1 feb 2025                                               #
+#This sourcecode is part of the code BlackJack and covers Test Case count hands         #
+#########################################################################################
 
+import random
 
 # Function to calculate the value of a hand
 def calculate_hand_value(hand):

@@ -1,3 +1,7 @@
+#########################################################################################
+#Lodewijk Aris version 1, date 1 feb 2025                                               #
+#This sourcecode is part of the code BlackJack and covers Test Case Spel Start          #
+#########################################################################################
 import random
 
 # Function to create a deck of cards

@@ -1,3 +1,8 @@
+#########################################################################################
+#Lodewijk Aris version 1, date  3 feb 2025                                              #
+##This sourcecode is part of the code BlackJack and covers Test Case Kapot              #                                              #
+#########################################################################################
+
 import random
 
 # Function to calculate the value of a hand

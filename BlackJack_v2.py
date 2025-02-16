@@ -1,3 +1,9 @@
+#########################################################################################
+#Lodewijk Aris  version 2, date 16 februari  2025                                       #
+#               version 1, date 30 januari  2025                                        #
+#De verbeterde BlackJack code na testen en leren                                        #
+#########################################################################################
+
 import random
 
 # Function to create a deck of cards
@@ -32,24 +38,35 @@ def calculate_hand_value(hand):
 
     return value
 
-
-# Function to display the hand
-
-
-def display_hand(hand, name):
+# Functionaliteit om kaart(en) te laten zien van de hand
+def display_hand(hand, name, hide_second_card=False):
     print(f"{name}'s hand:")
-    for card in hand:
+    for i, card in enumerate(hand):
         rank, suit = card
-        print(f"{rank} of {suit}")
-    print(f"Value: {calculate_hand_value(hand)}")
+        if hide_second_card and i == 1:
+            print("Hidden")
+        else:
+            print(f"{rank} of {suit}")
+    if not hide_second_card:
+        print(f"Value: {calculate_hand_value(hand)}")
     print()
-
 
 # Function to deal a card
 def deal_card(deck, hand):
     card = random.choice(deck)
     deck.remove(card)
     hand.append(card)
+
+# Functie om de speluitkomst te bepalen
+def determine_outcome(dealer_value, player_value):
+    if dealer_value > 21:
+        return "Dealer busts! Player wins."
+    elif dealer_value > player_value:
+        return "Dealer wins."
+    elif dealer_value < player_value:
+        return "Player wins."
+    else:
+        return "It's a tie!"
 
 # Main function to play blackjack
 def play_blackjack():
@@ -63,8 +80,9 @@ def play_blackjack():
         deal_card(deck, player_hand)
         deal_card(deck, dealer_hand)
 
-    # Player's turn
+    # Player's turn met verborgen kaart deler
     while True:
+        display_hand(dealer_hand, "Dealer", hide_second_card=True)
         display_hand(player_hand, "Player")
         if calculate_hand_value(player_hand) > 21:
             print("Player busts! Dealer wins.")
@@ -86,15 +104,8 @@ def play_blackjack():
     player_value = calculate_hand_value(player_hand)
     dealer_value = calculate_hand_value(dealer_hand)
 
-    if dealer_value > 21:
-        print("Dealer busts! Player wins.")
-    elif dealer_value > player_value:
-        print("Dealer wins.")
-    elif dealer_value < player_value:
-        print("Player wins.")
-    else:
-        print("It's a tie!")
-
+    outcome = determine_outcome(dealer_value, player_value)
+    print(outcome)
 
 # Run the game
 play_blackjack()
